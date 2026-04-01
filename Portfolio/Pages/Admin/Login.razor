@@ -1,0 +1,65 @@
+@page "/admin/login"
+@inject AuthService AuthService
+@inject NavigationManager Nav
+
+<div style="display:flex; justify-content:center; align-items:center; height:100vh;">
+    <div style="display:flex; flex-direction:column; gap:1rem; padding:2rem; border:1px solid #ccc; border-radius:8px; width:300px;">
+        
+        <h2 style="margin:0;">Admin Login</h2>
+
+        @if (!string.IsNullOrEmpty(_error))
+        {
+            <p style="color:red; margin:0; font-size:0.85rem;">@_error</p>
+        }
+
+        <input type="text"
+          placeholder="Username"
+          @bind="_username"
+          @bind:event="oninput"
+          style="padding:0.5rem; border:1px solid #ccc; border-radius:4px;" />
+
+        <input type="password"
+          placeholder="Password"
+          @bind="_password"
+          @bind:event="oninput"
+          @onkeydown="HandleKeyDown"
+          style="padding:0.5rem; border:1px solid #ccc; border-radius:4px;" />
+
+        <button @onclick="HandleLogin"
+                disabled="@_loading"
+                style="padding:0.5rem; background:#1a1a2e; color:white; border:none; border-radius:4px; cursor:pointer;">
+            @(_loading ? "Logging in..." : "Login")
+        </button>
+
+    </div>
+</div>
+
+@code {
+    private string _username = "";
+    private string _password = "";
+    private string _error = "";
+    private bool _loading = false;
+
+    protected override async Task OnInitializedAsync()
+    {
+        if (await AuthService.IsAuthenticatedAsync())
+            Nav.NavigateTo("/admin/dashboard");
+    }
+
+    private async Task HandleLogin()
+    {
+        _error = "";
+        _loading = true;
+        var success = await AuthService.LoginAsync(_username, _password);
+        if (success)
+            Nav.NavigateTo("/admin/dashboard");
+        else
+            _error = "Invalid credentials.";
+        _loading = false;
+    }
+
+    private async Task HandleKeyDown(KeyboardEventArgs e)
+    {
+        if (e.Key == "Enter") await HandleLogin();
+    }
+}
