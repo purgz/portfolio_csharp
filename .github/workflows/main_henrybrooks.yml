@@ -24,7 +24,7 @@ jobs:
         run: dotnet build Portfolio.Server/Portfolio.Server.csproj --configuration Release
 
       - name: dotnet publish
-        run: dotnet publish Portfolio.Server/Portfolio.Server.csproj -c Release -o "${{env.DOTNET_ROOT}}/myapp"
+        run: dotnet publish Portfolio.Server/Portfolio.Server.csproj -c Release -o "${{env.DOTNET_ROOT}}/myapp" --no-self-contained
 
       - name: Upload artifact for deployment job
         uses: actions/upload-artifact@v4

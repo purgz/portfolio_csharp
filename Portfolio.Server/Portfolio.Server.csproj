@@ -5,6 +5,7 @@
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
     <UserSecretsId>d5b4231a-e1ee-49bc-ad6d-a73331614ab6</UserSecretsId>
+    <StaticWebAssetsEnabled>true</StaticWebAssetsEnabled> 
   </PropertyGroup>
 
 
