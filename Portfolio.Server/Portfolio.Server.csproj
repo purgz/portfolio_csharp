@@ -6,6 +6,7 @@
     <ImplicitUsings>enable</ImplicitUsings>
     <UserSecretsId>d5b4231a-e1ee-49bc-ad6d-a73331614ab6</UserSecretsId>
     <StaticWebAssetsEnabled>true</StaticWebAssetsEnabled> 
+    <WasmFingerprintAssets>false</WasmFingerprintAssets>
   </PropertyGroup>
 
 
@@ -21,6 +22,5 @@
   <!-- Reference the Blazor WASM project so Server can serve it -->
   <ItemGroup>
     <ProjectReference Include="..\Portfolio\Portfolio.csproj" />
-     <WasmFingerprintAssets>false</WasmFingerprintAssets>
   </ItemGroup>
 </Project>
