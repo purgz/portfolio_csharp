@@ -21,5 +21,6 @@
   <!-- Reference the Blazor WASM project so Server can serve it -->
   <ItemGroup>
     <ProjectReference Include="..\Portfolio\Portfolio.csproj" />
+     <WasmFingerprintAssets>false</WasmFingerprintAssets>
   </ItemGroup>
 </Project>
