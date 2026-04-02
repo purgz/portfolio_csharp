@@ -9,4 +9,5 @@ public class AppDbContext : DbContext
         : base(options) { }
 
     public DbSet<AdminUser> AdminUsers { get; set; }
+    public DbSet<LeagueResult> LeagueResults { get; set; }
 }

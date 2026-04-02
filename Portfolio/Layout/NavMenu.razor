@@ -1,4 +1,9 @@
-﻿<div class="top-row ps-3 navbar navbar-dark">
+﻿@inject AuthService AuthService
+@inject NavigationManager Nav
+
+@implements IDisposable
+
+<div class="top-row ps-3 navbar navbar-dark">
     <div class="container-fluid">
         <a class="navbar-brand" href="">Portfolio</a>
         <button title="Navigation menu" class="navbar-toggler" @onclick="ToggleNavMenu">
@@ -24,6 +29,18 @@
                 <span class="bi bi-list-nested-nav-menu" aria-hidden="true"></span> Weather
             </NavLink>
         </div>
+        @if (_isAuthenticated){
+          <div class="nav-item px-3">
+              <NavLink class="nav-link" href="/admin/league-archive">
+                  <span class="bi bi-list-nested-nav-menu" aria-hidden="true"></span> League 
+              </NavLink>
+          </div>
+          <div class="nav-item px-3">
+              <button style="padding:0.5rem 1rem; background:#c0392b; color:white; border:none; border-radius:4px; cursor:pointer;"  @onclick="HandleLogout">
+                  <span  aria-hidden="true"></span> Logout
+              </button>
+          </div>
+        }
     </nav>
 </div>
 
@@ -36,4 +53,33 @@
     {
         collapseNavMenu = !collapseNavMenu;
     }
+
+    private bool _isAuthenticated = false;
+
+
+    protected override async Task OnInitializedAsync()
+    {
+        _isAuthenticated = await AuthService.IsAuthenticatedAsync();
+        Nav.LocationChanged += OnLocationChanged;
+    }
+
+
+    private async Task HandleLogout()
+    {
+        await AuthService.LogoutAsync();
+        _isAuthenticated = false;
+        Nav.NavigateTo("/admin/login");
+    }
+
+    private async void OnLocationChanged(object? sender, LocationChangedEventArgs e)
+    {
+        _isAuthenticated = await AuthService.IsAuthenticatedAsync();
+        await InvokeAsync(StateHasChanged);
+    }
+
+    public void Dispose()
+    {
+        Nav.LocationChanged -= OnLocationChanged;
+    }
 }
+

@@ -1,0 +1,31 @@
+@page "/admin/league-archive"
+@inject AuthService AuthService
+@inject NavigationManager Nav
+
+@if (!_checked)
+{
+    <p>Loading...</p>
+}
+else
+{
+    <div style="padding:2rem;">
+        <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:2rem;">
+            <h1 style="margin:0;">League archive</h1>
+        </div>
+    </div>
+}
+
+@code {
+    private bool _checked = false;
+
+    protected override async Task OnInitializedAsync()
+    {
+        if (!await AuthService.IsAuthenticatedAsync())
+            Nav.NavigateTo("/admin/login");
+
+        _checked = true;
+    }
+
+    
+}
+
