@@ -1151,6 +1151,6 @@ C:\portfolio_csharp\Portfolio\bin\Debug\net10.0\wwwroot\_framework\Portfolio.was
 C:\portfolio_csharp\Portfolio\bin\Debug\net10.0\wwwroot\_framework\Portfolio.pdb.gz
 C:\portfolio_csharp\Portfolio\bin\Debug\net10.0\wwwroot\_framework\dotnet.js.gz
 C:\portfolio_csharp\Portfolio\obj\Debug\net10.0\compressed\4h5lvuec0z-{0}-rqpc9mtl2z-rqpc9mtl2z.gz
-C:\portfolio_csharp\Portfolio\obj\Debug\net10.0\compressed\phqntkgxay-{0}-ffls062fzv-ffls062fzv.gz
-C:\portfolio_csharp\Portfolio\obj\Debug\net10.0\compressed\dd4nc87vck-{0}-twrb5qxc01-twrb5qxc01.gz
-C:\portfolio_csharp\Portfolio\obj\Debug\net10.0\compressed\hgqrykxyam-{0}-htqe0f4xei-htqe0f4xei.gz
+C:\portfolio_csharp\Portfolio\obj\Debug\net10.0\compressed\phqntkgxay-{0}-9tcoiubkl5-9tcoiubkl5.gz
+C:\portfolio_csharp\Portfolio\obj\Debug\net10.0\compressed\dd4nc87vck-{0}-9mylvscmbk-9mylvscmbk.gz
+C:\portfolio_csharp\Portfolio\obj\Debug\net10.0\compressed\hgqrykxyam-{0}-oaeqrcz4rd-oaeqrcz4rd.gz

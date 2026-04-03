@@ -45,21 +45,31 @@ app.MapRazorPages();
 app.MapFallbackToFile("index.html"); // Blazor client-side routing fallback
 
 // Migrate and seed on startup
-using (var scope = app.Services.CreateScope())
+// Causes crash to the web server if database is not available
+try
 {
-    var db = scope.ServiceProvider.GetRequiredService<AppDbContext>();
-    db.Database.Migrate();
-
-    if (!db.AdminUsers.Any())
+    using (var scope = app.Services.CreateScope())
     {
-        db.AdminUsers.Add(new Portfolio.Server.Models.AdminUser
+        var db = scope.ServiceProvider.GetRequiredService<AppDbContext>();
+        db.Database.Migrate();
+
+        if (!db.AdminUsers.Any())
         {
-            Username = builder.Configuration["Admin:Username"]!,
-            PasswordHash = BCrypt.Net.BCrypt.HashPassword(
-                builder.Configuration["Admin:SeedPassword"]!)
-        });
-        db.SaveChanges();
+            db.AdminUsers.Add(new Portfolio.Server.Models.AdminUser
+            {
+                Username = builder.Configuration["Admin:Username"]!,
+                PasswordHash = BCrypt.Net.BCrypt.HashPassword(
+                    builder.Configuration["Admin:SeedPassword"]!)
+            });
+            db.SaveChanges();
+        }
     }
 }
+catch (Exception ex)
+{
+    Console.WriteLine($"Database migration failed: {ex.Message}");
+    Console.WriteLine("Database may not be available - app startup will continue, but API calls will fail until database is online");
+}
+
 
 app.Run();
