@@ -10,6 +10,195 @@
     --danger: #B34700;
 }
 
+/* =======================
+   General Header Styling
+   ======================= */
+.topnav {
+    background-color: var(--primary);
+    color: #fff;
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.topnav-inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0.5rem 1rem;
+}
+
+/* =======================
+   Brand
+   ======================= */
+.topnav-brand {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: #fff;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.topnav-brand:hover {
+    color: #4caf50;
+}
+
+/* =======================
+   Hamburger Toggle
+   ======================= */
+.topnav-toggle {
+    display: none;
+    flex-direction: column;
+    justify-content: space-around;
+    width: 2rem;
+    height: 2rem;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+}
+
+.topnav-toggle span {
+    width: 100%;
+    height: 3px;
+    background-color: #fff;
+    border-radius: 2px;
+    transition: all 0.3s ease;
+}
+
+.topnav-toggle[aria-expanded="true"] span:nth-child(1) {
+    transform: rotate(45deg) translate(5px, 5px);
+}
+
+.topnav-toggle[aria-expanded="true"] span:nth-child(2) {
+    opacity: 0;
+}
+
+.topnav-toggle[aria-expanded="true"] span:nth-child(3) {
+    transform: rotate(-45deg) translate(5px, -5px);
+}
+
+/* =======================
+   Navigation Links
+   ======================= */
+.topnav-links {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+/* Style all links and buttons */
+.topnav-links a,
+.topnav-links button {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: #fff;
+    text-decoration: none;
+    font-weight: 500;
+    padding: 0.5rem 0.5rem;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    position: relative;
+    min-height: 40px;
+    box-sizing: border-box;
+}
+
+/* Hover effects for links and buttons */
+.topnav-links a:hover,
+.topnav-links button:hover {
+    background-color: #333;
+    transform: translateY(-2px);
+}
+
+/* Active link highlight */
+.topnav-links a.active {
+    background-color: #4caf50;
+    color: #fff;
+}
+
+/* Icon styling */
+.topnav-links .nav-icon {
+    font-size: 1.2rem;
+    transition: transform 0.3s ease, color 0.3s ease;
+}
+
+/* Icon hover animation */
+.topnav-links a:hover .nav-icon,
+.topnav-links button:hover .nav-icon {
+    color: #4caf50;
+    transform: scale(1.2) rotate(10deg);
+}
+
+/* Optional underline animation */
+.topnav-links a::after {
+    content: '';
+    display: block;
+    width: 0;
+    height: 2px;
+    background: #4caf50;
+    transition: width 0.3s ease;
+    position: absolute;
+    bottom: 4px;
+    left: 0;
+}
+
+.topnav-links a:hover::after {
+    width: 100%;
+}
+
+/* Divider between authenticated links */
+.topnav-divider {
+    width: 1px;
+    height: 24px;
+    background-color: #555;
+    margin: 0 0.5rem;
+}
+
+/* =======================
+   Responsive Menu
+   ======================= */
+@media (max-width: 768px) {
+    .topnav-toggle {
+        display: flex;
+    }
+
+    .topnav-links {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        flex-direction: column;
+        background-color: var(--primary);
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.3s ease;
+        gap: 0;
+    }
+
+    .topnav-links.open {
+        max-height: 500px; /* large enough to show all items */
+    }
+
+    .topnav-links a,
+    .topnav-links button {
+        width: 100%;
+        justify-content: flex-start;
+        padding: 0.75rem 1rem;
+    }
+
+    .topnav-divider {
+        display: none;
+    }
+}
+
 body {
     background: var(--bg);
     color: var(--text);
@@ -136,3 +325,4 @@ code {
 .form-floating > .form-control-plaintext:focus::placeholder, .form-floating > .form-control:focus::placeholder {
     text-align: start;
 }
+
