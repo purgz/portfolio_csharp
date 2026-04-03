@@ -3,6 +3,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 using Portfolio.Server.Data;
 using System.Text;
+using Portfolio.Server.Models;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -63,6 +64,27 @@ try
             });
             db.SaveChanges();
         }
+
+        if (!db.LeagueResults.Any())
+          {
+              db.LeagueResults.AddRange(
+                  // 2023
+                  new Portfolio.Server.Models.LeagueResult { Year = 2023, Semester = 1, PlayerName = "Alice", Score = 15 },
+                  new Portfolio.Server.Models.LeagueResult { Year = 2023, Semester = 1, PlayerName = "Bob", Score = 12 },
+                  new Portfolio.Server.Models.LeagueResult { Year = 2023, Semester = 1, PlayerName = "Charlie", Score = 10 },
+                  new Portfolio.Server.Models.LeagueResult { Year = 2023, Semester = 2, PlayerName = "Alice", Score = 13 },
+                  new Portfolio.Server.Models.LeagueResult { Year = 2023, Semester = 2, PlayerName = "Bob", Score = 17 },
+                  new Portfolio.Server.Models.LeagueResult { Year = 2023, Semester = 2, PlayerName = "Charlie", Score = 9 },
+                  // 2024
+                  new Portfolio.Server.Models.LeagueResult { Year = 2024, Semester = 1, PlayerName = "Alice", Score = 18 },
+                  new Portfolio.Server.Models.LeagueResult { Year = 2024, Semester = 1, PlayerName = "Bob", Score = 14 },
+                  new Portfolio.Server.Models.LeagueResult { Year = 2024, Semester = 1, PlayerName = "Charlie", Score = 11 },
+                  new Portfolio.Server.Models.LeagueResult { Year = 2024, Semester = 2, PlayerName = "Alice", Score = 16 },
+                  new Portfolio.Server.Models.LeagueResult { Year = 2024, Semester = 2, PlayerName = "Bob", Score = 19 },
+                  new Portfolio.Server.Models.LeagueResult { Year = 2024, Semester = 2, PlayerName = "Charlie", Score = 14 }
+              );
+              db.SaveChanges();
+          }
     }
 }
 catch (Exception ex)

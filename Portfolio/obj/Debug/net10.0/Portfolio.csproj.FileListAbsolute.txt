@@ -483,8 +483,6 @@ C:\portfolio_csharp\Portfolio\obj\Debug\net10.0\compressed\lwrwrz55tk-{0}-63fj8s
 C:\portfolio_csharp\Portfolio\obj\Debug\net10.0\compressed\qbjgz7wzs3-{0}-knhvft74v7-knhvft74v7.gz
 C:\portfolio_csharp\Portfolio\obj\Debug\net10.0\compressed\fhqjjomdmv-{0}-iag0ou56lh-iag0ou56lh.gz
 C:\portfolio_csharp\Portfolio\obj\Debug\net10.0\compressed\rbff2lqdy9-{0}-66stpp682q-66stpp682q.gz
-C:\portfolio_csharp\Portfolio\obj\Debug\net10.0\compressed\dq6x3a8ph8-{0}-w1kwdt7eb7-w1kwdt7eb7.gz
-C:\portfolio_csharp\Portfolio\obj\Debug\net10.0\compressed\rbv2ka4glg-{0}-w1kwdt7eb7-w1kwdt7eb7.gz
 C:\portfolio_csharp\Portfolio\obj\Debug\net10.0\compressed\u4xc3whn7e-{0}-roqc1km2rj-roqc1km2rj.gz
 C:\portfolio_csharp\Portfolio\obj\Debug\net10.0\compressed\cbq8hjfa0p-{0}-uddsvpv1sv-uddsvpv1sv.gz
 C:\portfolio_csharp\Portfolio\obj\Debug\net10.0\compressed\3fzbhpiibs-{0}-zrueb40r85-zrueb40r85.gz
@@ -1151,6 +1149,8 @@ C:\portfolio_csharp\Portfolio\bin\Debug\net10.0\wwwroot\_framework\Portfolio.was
 C:\portfolio_csharp\Portfolio\bin\Debug\net10.0\wwwroot\_framework\Portfolio.pdb.gz
 C:\portfolio_csharp\Portfolio\bin\Debug\net10.0\wwwroot\_framework\dotnet.js.gz
 C:\portfolio_csharp\Portfolio\obj\Debug\net10.0\compressed\4h5lvuec0z-{0}-rqpc9mtl2z-rqpc9mtl2z.gz
-C:\portfolio_csharp\Portfolio\obj\Debug\net10.0\compressed\phqntkgxay-{0}-9tcoiubkl5-9tcoiubkl5.gz
-C:\portfolio_csharp\Portfolio\obj\Debug\net10.0\compressed\dd4nc87vck-{0}-9mylvscmbk-9mylvscmbk.gz
-C:\portfolio_csharp\Portfolio\obj\Debug\net10.0\compressed\hgqrykxyam-{0}-oaeqrcz4rd-oaeqrcz4rd.gz
+C:\portfolio_csharp\Portfolio\obj\Debug\net10.0\compressed\dq6x3a8ph8-{0}-w2aewjliwm-w2aewjliwm.gz
+C:\portfolio_csharp\Portfolio\obj\Debug\net10.0\compressed\rbv2ka4glg-{0}-w2aewjliwm-w2aewjliwm.gz
+C:\portfolio_csharp\Portfolio\obj\Debug\net10.0\compressed\phqntkgxay-{0}-39m3onbw4t-39m3onbw4t.gz
+C:\portfolio_csharp\Portfolio\obj\Debug\net10.0\compressed\dd4nc87vck-{0}-smne9ka76l-smne9ka76l.gz
+C:\portfolio_csharp\Portfolio\obj\Debug\net10.0\compressed\hgqrykxyam-{0}-12gsuxw075-12gsuxw075.gz
