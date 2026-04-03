@@ -1,185 +1,188 @@
+/* Nav.razor.css */
+
+/* =======================
+   General Header Styling
+   ======================= */
 .topnav {
-    background: var(--primary);
+    background-color: var(--primary);
+    color: #fff;
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
     position: sticky;
     top: 0;
-    z-index: 100;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.25);
+    z-index: 1000;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
 }
 
-/* Layout */
 .topnav-inner {
-    max-width: 1100px;
-    margin: 0 auto;
-    padding: 0 1.5rem;
-    height: 64px;
     display: flex;
-    align-items: center;
     justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0.5rem 1rem;
 }
 
-/* Brand */
+/* =======================
+   Brand
+   ======================= */
 .topnav-brand {
-    color: var(--accent);
     font-size: 1.5rem;
-    font-weight: 800;
+    font-weight: 600;
+    color: #fff;
     text-decoration: none;
-    letter-spacing: 3px;
+    transition: color 0.3s ease;
 }
 
-/* Links container */
-.topnav-links {
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
+.topnav-brand:hover {
+    color: #4caf50;
 }
 
-/* Base link style */
-.topnav-links ::deep a {
-    color: #FFFFFF;
-    text-decoration: none;
-    padding: 0.45rem 1rem;
-    border-radius: 6px;
-    font-size: 0.95rem;
-    font-weight: 500;
-    letter-spacing: 0.3px;
-    border: 2px solid transparent;
-    transition: all 0.2s ease;
-    position: relative;
-}
-
-/* 🔥 Hover effect (clear + modern) */
-.topnav-links ::deep a:hover {
-    background: rgba(255,255,255,0.18);
-    border-color: rgba(255,255,255,0.6);
-    transform: translateY(-1px);
-}
-
-/* Active link */
-.topnav-links ::deep a.active {
-    color: var(--accent);
-    border-bottom: 2px solid var(--accent);
-    background: rgba(255,255,255,0.08);
-}
-
-/* Divider */
-.topnav-divider {
-    width: 1px;
-    height: 24px;
-    background: rgba(255,255,255,0.25);
-    margin: 0 0.5rem;
-}
-
-/* Logout button */
-.topnav-logout {
-    background: transparent;
-    color: #FFFFFF;
-    border: 2px solid rgba(255,255,255,0.4);
-    padding: 0.45rem 1rem;
-    border-radius: 6px;
-    cursor: pointer;
-    font-size: 0.95rem;
-    font-weight: 500;
-    transition: all 0.2s ease;
-    display: flex;
-    align-items: center;
-    gap: 0.4rem;
-}
-
-.topnav-logout:hover {
-    background: rgba(255,255,255,0.18);
-    border-color: rgba(255,255,255,0.6);
-    transform: translateY(-1px);
-}
-
-/* Mobile toggle */
+/* =======================
+   Hamburger Toggle
+   ======================= */
 .topnav-toggle {
     display: none;
     flex-direction: column;
-    gap: 5px;
-    background: none;
+    justify-content: space-around;
+    width: 2rem;
+    height: 2rem;
+    background: transparent;
     border: none;
     cursor: pointer;
-    padding: 4px;
+    padding: 0;
 }
 
 .topnav-toggle span {
-    display: block;
-    width: 26px;
-    height: 2px;
-    background: white;
+    width: 100%;
+    height: 3px;
+    background-color: #fff;
     border-radius: 2px;
-    transition: all 0.2s;
+    transition: all 0.3s ease;
 }
 
-/* Icons */
-.nav-icon {
-    display: inline-block;
-    width: 15px;
-    height: 15px;
-    margin-right: 5px;
-    vertical-align: middle;
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: contain;
-    opacity: 0.9;
+.topnav-toggle[aria-expanded="true"] span:nth-child(1) {
+    transform: rotate(45deg) translate(5px, 5px);
 }
 
-.icon-home {
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z'/%3E%3Cpolyline points='9 22 9 12 15 12 15 22'/%3E%3C/svg%3E");
+.topnav-toggle[aria-expanded="true"] span:nth-child(2) {
+    opacity: 0;
 }
 
-.icon-league {
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Ccircle cx='12' cy='8' r='6'/%3E%3Cpath d='M15.477 12.89L17 22l-5-3-5 3 1.523-9.11'/%3E%3C/svg%3E");
+.topnav-toggle[aria-expanded="true"] span:nth-child(3) {
+    transform: rotate(-45deg) translate(5px, -5px);
 }
 
-.icon-privacy {
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z'/%3E%3C/svg%3E");
+/* =======================
+   Navigation Links
+   ======================= */
+.topnav-links {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
 }
 
-.icon-admin {
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Crect x='3' y='3' width='7' height='7'/%3E%3Crect x='14' y='3' width='7' height='7'/%3E%3Crect x='14' y='14' width='7' height='7'/%3E%3Crect x='3' y='14' width='7' height='7'/%3E%3C/svg%3E");
+/* Style all links and buttons inside NavLink */
+.topnav-links ::deep a,
+.topnav-links ::deep button {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: #fff;
+    text-decoration: none;
+    font-weight: 500;
+    padding: 0.5rem 0.5rem;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    position: relative;
 }
 
-.icon-logout {
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4'/%3E%3Cpolyline points='16 17 21 12 16 7'/%3E%3Cline x1='21' y1='12' x2='9' y2='12'/%3E%3C/svg%3E");
+/* Hover effects for links and buttons */
+.topnav-links ::deep a:hover,
+.topnav-links ::deep button:hover {
+    background-color: #333;
+    transform: translateY(-2px);
 }
 
-/* Mobile */
+/* Active link highlight */
+.topnav-links ::deep a.active  {
+    background-color: #4caf50;
+    color: #fff;
+}
+
+/* Icon styling */
+.topnav-links ::deep .nav-icon {
+    font-size: 1.2rem;
+    transition: transform 0.3s ease, color 0.3s ease;
+}
+
+/* Icon hover animation */
+.topnav-links ::deep a:hover .nav-icon,
+.topnav-links ::deep button:hover .nav-icon {
+    color: #4caf50;
+    transform: scale(1.2) rotate(10deg);
+}
+
+/* Optional underline animation */
+.topnav-links ::deep a::after {
+    content: '';
+    display: block;
+    width: 0;
+    height: 2px;
+    background: #4caf50;
+    transition: width 0.3s ease;
+    position: absolute;
+    bottom: 4px;
+    left: 0;
+}
+
+.topnav-links ::deep a:hover::after {
+    width: 100%;
+}
+
+/* Divider between authenticated links */
+.topnav-divider {
+    width: 1px;
+    height: 24px;
+    background-color: #555;
+    margin: 0 0.5rem;
+}
+
+/* =======================
+   Responsive Menu
+   ======================= */
 @media (max-width: 768px) {
     .topnav-toggle {
         display: flex;
     }
 
     .topnav-links {
-        display: none;
         position: absolute;
-        top: 64px;
+        top: 100%;
         left: 0;
         right: 0;
-        background: var(--primary);
         flex-direction: column;
-        align-items: stretch;
-        padding: 0.75rem;
-        gap: 0.25rem;
-        box-shadow: 0 6px 12px rgba(0,0,0,0.2);
+        background-color: var(--primary);
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.3s ease;
+        gap: 0;
     }
 
     .topnav-links.open {
-        display: flex;
+        max-height: 500px; /* large enough to show all items */
     }
 
-    .topnav-links ::deep a {
+    .topnav-links ::deep a,
+    .topnav-links ::deep button {
+        width: 100%;
+        justify-content: flex-start;
         padding: 0.75rem 1rem;
     }
 
     .topnav-divider {
-        width: 100%;
-        height: 1px;
-        margin: 0.25rem 0;
-    }
-
-    .topnav-logout {
-        padding: 0.75rem 1rem;
-        justify-content: flex-start;
+        display: none;
     }
 }

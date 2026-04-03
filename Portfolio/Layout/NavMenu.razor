@@ -1,6 +1,7 @@
 ﻿@inject AuthService AuthService
 @inject NavigationManager Nav
 @implements IDisposable
+
 <header class="topnav">
     <div class="topnav-inner">
         <a class="topnav-brand" href="/">Henry Brooks</a>
@@ -21,17 +22,14 @@
              aria-label="Main navigation">
 
             <NavLink href="" Match="NavLinkMatch.All">
-                <span class="nav-icon icon-home" aria-hidden="true"></span>
                 <span>Home</span>
             </NavLink>
 
             <NavLink href="league-archive">
-                <span class="nav-icon icon-league" aria-hidden="true"></span>
                 <span>League</span>
             </NavLink>
 
             <NavLink href="privacy">
-                <span class="nav-icon icon-privacy" aria-hidden="true"></span>
                 <span>Privacy</span>
             </NavLink>
 
@@ -40,12 +38,10 @@
                 <div class="topnav-divider" role="separator"></div>
 
                 <NavLink href="admin/league-archive">
-                    <span class="nav-icon icon-admin" aria-hidden="true"></span>
                     <span>League Admin</span>
                 </NavLink>
 
                 <button class="topnav-logout" @onclick="HandleLogout">
-                    <span class="nav-icon icon-logout" aria-hidden="true"></span>
                     <span>Logout</span>
                 </button>
             }

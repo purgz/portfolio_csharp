@@ -436,7 +436,6 @@ C:\portfolio_csharp\Portfolio\obj\Debug\net10.0\Portfolio.genruntimeconfig.cache
 C:\portfolio_csharp\Portfolio\obj\Debug\net10.0\blazor.build.boot-extension.json
 C:\portfolio_csharp\Portfolio\obj\Debug\net10.0\dotnet.js
 C:\portfolio_csharp\Portfolio\obj\Debug\net10.0\compressed\f9o902iofb-{0}-99zm1jdh75-99zm1jdh75.gz
-C:\portfolio_csharp\Portfolio\obj\Debug\net10.0\compressed\1gf0soj1i0-{0}-nk9bgqz024-nk9bgqz024.gz
 C:\portfolio_csharp\Portfolio\obj\Debug\net10.0\compressed\fkmehnfzni-{0}-bqjiyaj88i-bqjiyaj88i.gz
 C:\portfolio_csharp\Portfolio\obj\Debug\net10.0\compressed\6si91vzy89-{0}-c2jlpeoesf-c2jlpeoesf.gz
 C:\portfolio_csharp\Portfolio\obj\Debug\net10.0\compressed\rv86f6bpew-{0}-erw9l3u2r3-erw9l3u2r3.gz
@@ -1149,8 +1148,10 @@ C:\portfolio_csharp\Portfolio\bin\Debug\net10.0\wwwroot\_framework\Portfolio.was
 C:\portfolio_csharp\Portfolio\bin\Debug\net10.0\wwwroot\_framework\Portfolio.pdb.gz
 C:\portfolio_csharp\Portfolio\bin\Debug\net10.0\wwwroot\_framework\dotnet.js.gz
 C:\portfolio_csharp\Portfolio\obj\Debug\net10.0\compressed\4h5lvuec0z-{0}-rqpc9mtl2z-rqpc9mtl2z.gz
-C:\portfolio_csharp\Portfolio\obj\Debug\net10.0\compressed\dq6x3a8ph8-{0}-b5qd6vhwd8-b5qd6vhwd8.gz
-C:\portfolio_csharp\Portfolio\obj\Debug\net10.0\compressed\rbv2ka4glg-{0}-b5qd6vhwd8-b5qd6vhwd8.gz
-C:\portfolio_csharp\Portfolio\obj\Debug\net10.0\compressed\phqntkgxay-{0}-2urflijiid-2urflijiid.gz
-C:\portfolio_csharp\Portfolio\obj\Debug\net10.0\compressed\dd4nc87vck-{0}-q8m11t6mcw-q8m11t6mcw.gz
-C:\portfolio_csharp\Portfolio\obj\Debug\net10.0\compressed\hgqrykxyam-{0}-w93akug58o-w93akug58o.gz
+C:\portfolio_csharp\Portfolio\obj\Debug\net10.0\scopedcss\Pages\Home.razor.rz.scp.css
+C:\portfolio_csharp\Portfolio\obj\Debug\net10.0\compressed\1gf0soj1i0-{0}-8y8uoteqkt-8y8uoteqkt.gz
+C:\portfolio_csharp\Portfolio\obj\Debug\net10.0\compressed\phqntkgxay-{0}-jc8so4q5c5-jc8so4q5c5.gz
+C:\portfolio_csharp\Portfolio\obj\Debug\net10.0\compressed\dd4nc87vck-{0}-nhxpc12f93-nhxpc12f93.gz
+C:\portfolio_csharp\Portfolio\obj\Debug\net10.0\compressed\hgqrykxyam-{0}-ai233yodct-ai233yodct.gz
+C:\portfolio_csharp\Portfolio\obj\Debug\net10.0\compressed\dq6x3a8ph8-{0}-ua9511ympt-ua9511ympt.gz
+C:\portfolio_csharp\Portfolio\obj\Debug\net10.0\compressed\rbv2ka4glg-{0}-ua9511ympt-ua9511ympt.gz
