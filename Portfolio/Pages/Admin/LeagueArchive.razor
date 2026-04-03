@@ -1,4 +1,5 @@
 @page "/admin/league-archive"
+@using System.ComponentModel
 @inject AuthService AuthService
 @inject NavigationManager Nav
 
@@ -10,9 +11,13 @@ else
 {
     <div style="padding:2rem;">
         <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:2rem;">
-            <h1 style="margin:0;">League archive</h1>
+            <h1 style="margin:0;">League archive Administrator page</h1>
         </div>
     </div>
+
+    <p>
+     Mainly for compliance (CRUD) for GDPR easily adding/removing results. 
+    </p>
 }
 
 @code {

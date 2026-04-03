@@ -48,10 +48,6 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQ291bnRlci5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/portfolio_csharp/Portfolio/Pages/Home.razor]
-build_metadata.AdditionalFiles.TargetPath = UGFnZXNcSG9tZS5yYXpvcg==
-build_metadata.AdditionalFiles.CssScope = 
-
 [C:/portfolio_csharp/Portfolio/Pages/LeagueArchive.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcTGVhZ3VlQXJjaGl2ZS5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
@@ -79,3 +75,7 @@ build_metadata.AdditionalFiles.CssScope = b-xn2l5aia1e
 [C:/portfolio_csharp/Portfolio/Layout/NavMenu.razor]
 build_metadata.AdditionalFiles.TargetPath = TGF5b3V0XE5hdk1lbnUucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = b-r1r623j3hl
+
+[C:/portfolio_csharp/Portfolio/Pages/Home.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcSG9tZS5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = b-v9rf77xbvc

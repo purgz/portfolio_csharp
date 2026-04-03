@@ -1,61 +1,61 @@
 ﻿@inject AuthService AuthService
 @inject NavigationManager Nav
-
 @implements IDisposable
+<header class="topnav">
+    <div class="topnav-inner">
+        <a class="topnav-brand" href="/">Henry Brooks</a>
 
-<div class="top-row ps-3 navbar navbar-dark">
-    <div class="container-fluid">
-        <a class="navbar-brand" href="">Portfolio</a>
-        <button title="Navigation menu" class="navbar-toggler" @onclick="ToggleNavMenu">
-            <span class="navbar-toggler-icon"></span>
+        <button class="topnav-toggle"
+                @onclick="ToggleMenu"
+                aria-label="Toggle navigation menu"
+                aria-expanded="@_menuOpen"
+                aria-controls="main-nav">
+            <span></span>
+            <span></span>
+            <span></span>
         </button>
-    </div>
-</div>
 
-<div class="@NavMenuCssClass nav-scrollable" @onclick="ToggleNavMenu">
-    <nav class="nav flex-column">
-        <div class="nav-item px-3">
-            <NavLink class="nav-link" href="" Match="NavLinkMatch.All">
-                <span class="bi bi-house-door-fill-nav-menu" aria-hidden="true"></span> Home
+        <nav id="main-nav"
+             class="topnav-links @(_menuOpen ? "open" : "")"
+             role="navigation"
+             aria-label="Main navigation">
+
+            <NavLink href="" Match="NavLinkMatch.All">
+                <span class="nav-icon icon-home" aria-hidden="true"></span>
+                <span>Home</span>
             </NavLink>
-        </div>
-        <div class="nav-item px-3">
-            <NavLink class="nav-link" href="counter">
-                <span class="bi bi-plus-square-fill-nav-menu" aria-hidden="true"></span> Counter
+
+            <NavLink href="league-archive">
+                <span class="nav-icon icon-league" aria-hidden="true"></span>
+                <span>League</span>
             </NavLink>
-        </div>
-        <div class="nav-item px-3">
-            <NavLink class="nav-link" href="weather">
-                <span class="bi bi-list-nested-nav-menu" aria-hidden="true"></span> Weather
+
+            <NavLink href="privacy">
+                <span class="nav-icon icon-privacy" aria-hidden="true"></span>
+                <span>Privacy</span>
             </NavLink>
-        </div>
-        @if (_isAuthenticated){
-          <div class="nav-item px-3">
-              <NavLink class="nav-link" href="/admin/league-archive">
-                  <span class="bi bi-trophy-fill-nav-menu" aria-hidden="true"></span> League 
-              </NavLink>
-          </div>
-          <div class="nav-item px-3">
-              <button style="padding:0.5rem 1rem; background:#c0392b; color:white; border:none; border-radius:4px; cursor:pointer;"  @onclick="HandleLogout">
-                  <span  aria-hidden="true"></span> Logout
-              </button>
-          </div>
-        }
-    </nav>
-</div>
+
+            @if (_isAuthenticated)
+            {
+                <div class="topnav-divider" role="separator"></div>
+
+                <NavLink href="admin/league-archive">
+                    <span class="nav-icon icon-admin" aria-hidden="true"></span>
+                    <span>League Admin</span>
+                </NavLink>
+
+                <button class="topnav-logout" @onclick="HandleLogout">
+                    <span class="nav-icon icon-logout" aria-hidden="true"></span>
+                    <span>Logout</span>
+                </button>
+            }
+        </nav>
+    </div>
+</header>
 
 @code {
-    private bool collapseNavMenu = true;
-
-    private string? NavMenuCssClass => collapseNavMenu ? "collapse" : null;
-
-    private void ToggleNavMenu()
-    {
-        collapseNavMenu = !collapseNavMenu;
-    }
-
+    private bool _menuOpen = false;
     private bool _isAuthenticated = false;
-
 
     protected override async Task OnInitializedAsync()
     {
@@ -63,18 +63,22 @@
         Nav.LocationChanged += OnLocationChanged;
     }
 
+    private async void OnLocationChanged(object? sender, LocationChangedEventArgs e)
+    {
+        _isAuthenticated = await AuthService.IsAuthenticatedAsync();
+        _menuOpen = false;
+        await InvokeAsync(StateHasChanged);
+    }
+
+    private void ToggleMenu() => _menuOpen = !_menuOpen;
 
     private async Task HandleLogout()
     {
         await AuthService.LogoutAsync();
         _isAuthenticated = false;
-        Nav.NavigateTo("/admin/login");
-    }
-
-    private async void OnLocationChanged(object? sender, LocationChangedEventArgs e)
-    {
-        _isAuthenticated = await AuthService.IsAuthenticatedAsync();
+        _menuOpen = false;
         await InvokeAsync(StateHasChanged);
+        Nav.NavigateTo("/");
     }
 
     public void Dispose()
@@ -82,4 +86,3 @@
         Nav.LocationChanged -= OnLocationChanged;
     }
 }
-

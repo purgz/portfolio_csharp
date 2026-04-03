@@ -1,10 +1,75 @@
 ﻿@page "/"
 
-<PageTitle>Henry Brooks</PageTitle>
+<div class="hero">
+    <p class="hero-greeting">Hi, I'm</p>
+    <h1 class="hero-name">Henry Brooks</h1>
+    <p class="hero-title">Software Engineer</p>
+    <p class="hero-bio">
+        I build web applications and backend systems.
+        Currently working with .NET, Java, and cloud infrastructure on Azure.
+        Based in the UK.
+    </p>
+    <div class="hero-links">
+        <a href="https://github.com/yourusername" target="_blank" class="btn-primary">GitHub</a>
+        <a href="mailto:you@email.com" class="btn-secondary">Contact</a>
+    </div>
+</div>
 
+<section class="section">
+    <h2 class="section-title">Skills</h2>
+    <div class="skills-grid">
+        <div class="skill-card">
+            <h3>Backend</h3>
+            <p>Java · Spring Boot · C# · ASP.NET Core · REST APIs</p>
+        </div>
+        <div class="skill-card">
+            <h3>Frontend</h3>
+            <p>Blazor · HTML · CSS · JavaScript</p>
+        </div>
+        <div class="skill-card">
+            <h3>Cloud & DevOps</h3>
+            <p>Azure · Docker · GitHub Actions · CI/CD</p>
+        </div>
+        <div class="skill-card">
+            <h3>Database</h3>
+            <p>SQL Server · PostgreSQL · Entity Framework Core · JPA</p>
+        </div>
+    </div>
+</section>
 
-<h1>Personal portfolio using c#, hosted by Azure</h1>
+<section class="section">
+    <h2 class="section-title">Projects</h2>
+    <div class="projects-grid">
+        <div class="project-card">
+            <h3>Portfolio & League Archive</h3>
+            <p>
+                This site — built with Blazor WASM, ASP.NET Core,
+                Azure SQL and deployed via GitHub Actions to Azure.
+            </p>
+            <div class="project-tags">
+                <span class="tag">Blazor</span>
+                <span class="tag">.NET 10</span>
+                <span class="tag">Azure</span>
+            </div>
+        </div>
+        <div class="project-card">
+            <h3>Pool League App</h3>
+            <p>
+                Web application for managing a pool league —
+                built with Java and Spring Boot.
+            </p>
+            <div class="project-tags">
+                <span class="tag">Java</span>
+                <span class="tag">Spring Boot</span>
+            </div>
+        </div>
+    </div>
+</section>
 
-Aim to make a nice clean online cv :)
-
-Add a research page for game theory project.
+<section class="section">
+    <h2 class="section-title">About</h2>
+    <p class="about-text">
+        Fill this in with your background, education, interests and
+        what you are currently working on or learning.
+    </p>
+</section>
