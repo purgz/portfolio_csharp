@@ -1,0 +1,90 @@
+@page "/league-archive"
+@inject HttpClient Http
+
+@using Portfolio.Models;
+
+<h1>League Archive</h1>
+
+@if (_years == null)
+{
+    <p>Loading...</p>
+}
+else
+{
+    <div style="display:flex; gap:1rem; margin-bottom:1rem; flex-wrap:wrap;">
+        @foreach (var year in _years)
+        {
+            <button @onclick="() => SelectYear(year)"
+                    style="padding:0.5rem 1rem; 
+                           background:@(_selectedYear == year ? "#1a1a2e" : "#eee"); 
+                           color:@(_selectedYear == year ? "white" : "black"); 
+                           border:none; border-radius:4px; cursor:pointer;">
+                @year
+            </button>
+        }
+    </div>
+
+    @if (_selectedYear.HasValue)
+    {
+        <div style="display:flex; gap:2rem; flex-wrap:wrap;">
+            @foreach (var semester in new[] { 1, 2 })
+            {
+                var semesterResults = _results?
+                    .Where(r => r.Year == _selectedYear && r.Semester == semester)
+                    .OrderByDescending(r => r.Score)
+                    .ToList();
+
+                <div style="flex:1; min-width:250px;">
+                    <h2>Semester @semester</h2>
+                    @if (semesterResults != null && semesterResults.Any())
+                    {
+                        <table style="width:100%; border-collapse:collapse;">
+                            <thead>
+                                <tr style="background:#1a1a2e; color:white;">
+                                    <th style="padding:0.5rem; text-align:left;">Pos</th>
+                                    <th style="padding:0.5rem; text-align:left;">Player</th>
+                                    <th style="padding:0.5rem; text-align:right;">Score</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @for (int i = 0; i < semesterResults.Count; i++)
+                                {
+                                    var result = semesterResults[i];
+                                    <tr style="border-bottom:1px solid #eee; background:@(i % 2 == 0 ? "white" : "#f9f9f9")">
+                                        <td style="padding:0.5rem;">@(i + 1)</td>
+                                        <td style="padding:0.5rem;">@result.PlayerName</td>
+                                        <td style="padding:0.5rem; text-align:right;">@result.Score</td>
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+                    }
+                    else
+                    {
+                        <p>No results for this semester.</p>
+                    }
+                </div>
+            }
+        </div>
+    }
+}
+
+@code {
+    private List<int>? _years;
+    private List<LeagueResultDto>? _results;
+    private int? _selectedYear;
+
+    protected override async Task OnInitializedAsync()
+    {
+        _years = await Http.GetFromJsonAsync<List<int>>("api/league/years");
+        if (_years?.Any() == true)
+            await SelectYear(_years.First());
+    }
+
+    private async Task SelectYear(int year)
+    {
+        _selectedYear = year;
+        _results = await Http.GetFromJsonAsync<List<LeagueResultDto>>("api/league");
+    }
+}
+

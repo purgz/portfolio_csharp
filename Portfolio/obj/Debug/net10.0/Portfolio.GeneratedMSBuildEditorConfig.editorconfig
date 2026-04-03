@@ -52,8 +52,16 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcSG9tZS5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/portfolio_csharp/Portfolio/Pages/LeagueArchive.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcTGVhZ3VlQXJjaGl2ZS5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/portfolio_csharp/Portfolio/Pages/NotFound.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcTm90Rm91bmQucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/portfolio_csharp/Portfolio/Pages/Privacy.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUHJpdmFjeS5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/portfolio_csharp/Portfolio/Pages/Weather.razor]
