@@ -1,0 +1,290 @@
+@page "/admin/league-admin"
+@inject AuthService AuthService
+@inject HttpClient Http
+@inject NavigationManager Nav
+
+@using Portfolio.Models
+
+@if (!_checked)
+{
+    <p>Loading...</p>
+}
+else
+{
+    <h1>League Archive Admin</h1>
+    <p class="subtitle">Add, edit and remove league results for GDPR compliance and data management.</p>
+
+    @if (!string.IsNullOrEmpty(_message))
+    {
+        <div class="alert @(_isError ? "alert-error" : "alert-success")">@_message</div>
+    }
+
+    <div class="admin-section">
+        <h2>Add Result</h2>
+        <div class="form-row">
+            <div class="form-group">
+                <label>Year</label>
+                <input type="number" @bind="_newResult.Year" placeholder="2025" />
+            </div>
+            <div class="form-group">
+                <label>Semester</label>
+                <select @bind="_newResult.Semester">
+                    <option value="1">Semester 1</option>
+                    <option value="2">Semester 2</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label>Player Name</label>
+                <input type="text" @bind="_newResult.PlayerName" placeholder="Full name" />
+            </div>
+            <div class="form-group">
+                <label>Score</label>
+                <input type="number" step="0.01" @bind="_newResult.Score" placeholder="0.00" />
+            </div>
+            <div class="form-group form-action">
+                <button class="btn-add" @onclick="AddResult">Add Result</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="admin-section">
+        <div class="table-header">
+            <h2>All Results</h2>
+            <div class="filters">
+                <select @bind="_filterYear" @bind:event="onchange">
+                    <option value="0">All Years</option>
+                    @foreach (var year in _years)
+                    {
+                        <option value="@year">@year</option>
+                    }
+                </select>
+                <select @bind="_filterSemester" @bind:event="onchange">
+                    <option value="0">All Semesters</option>
+                    <option value="1">Semester 1</option>
+                    <option value="2">Semester 2</option>
+                </select>
+                <input type="text"
+                       placeholder="Search player..."
+                       @bind="_searchTerm"
+                       @bind:event="oninput" />
+            </div>
+        </div>
+
+        @if (_results == null)
+        {
+            <p>Loading results...</p>
+        }
+        else
+        {
+            <p class="result-count">Showing @FilteredResults.Count() of @_results.Count results</p>
+
+            <div class="table-wrapper">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Year</th>
+                            <th>Semester</th>
+                            <th>Player</th>
+                            <th>Score</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var result in FilteredResults)
+                        {
+                            @if (_editingId == result.Id)
+                            {
+                                <tr class="editing-row">
+                                    <td>
+                                        <input type="number" @bind="_editResult.Year" class="table-input" />
+                                    </td>
+                                    <td>
+                                        <select @bind="_editResult.Semester" class="table-input">
+                                            <option value="1">S1</option>
+                                            <option value="2">S2</option>
+                                        </select>
+                                    </td>
+                                    <td>
+                                        <input type="text" @bind="_editResult.PlayerName" class="table-input" />
+                                    </td>
+                                    <td>
+                                        <input type="number" step="0.01" @bind="_editResult.Score" class="table-input" />
+                                    </td>
+                                    <td class="action-cell">
+                                        <button class="btn-save" @onclick="SaveEdit">Save</button>
+                                        <button class="btn-cancel" @onclick="CancelEdit">Cancel</button>
+                                    </td>
+                                </tr>
+                            }
+                            else
+                            {
+                                <tr>
+                                    <td>@result.Year</td>
+                                    <td>@result.Semester</td>
+                                    <td>@result.PlayerName</td>
+                                    <td>@result.Score.ToString("F2")</td>
+                                    <td class="action-cell">
+                                        <button class="btn-edit" @onclick="() => StartEdit(result)">Edit</button>
+                                        <button class="btn-delete" @onclick="() => ConfirmDelete(result)">Delete</button>
+                                    </td>
+                                </tr>
+                            }
+                        }
+                    </tbody>
+                </table>
+            </div>
+        }
+    </div>
+    @if (_confirmingDelete != null)
+{
+    <div style="position:fixed; inset:0; background:rgba(0,0,0,0.5); display:flex; align-items:center; justify-content:center; z-index:1000;">
+        <div style="background:white; border-radius:8px; padding:2rem; max-width:440px; width:90%; box-shadow:0 8px 32px rgba(0,0,0,0.2);">
+            <h3 style="color:var(--primary); margin-bottom:0.75rem;">Confirm Deletion</h3>
+            <p style="color:var(--text-muted); line-height:1.6;">
+                Remove <strong>@_confirmingDelete.PlayerName</strong> 
+                (@_confirmingDelete.Year S@_confirmingDelete.Semester) from the archive?
+            </p>
+            <p style="font-size:0.85rem; color:var(--danger); margin-bottom:0;">
+                This action cannot be undone. If requested for GDPR compliance, 
+                this permanently removes their data.
+            </p>
+            <div style="display:flex; gap:0.75rem; margin-top:1.5rem;">
+                <button class="btn-delete" @onclick="DeleteConfirmed">Yes, Delete</button>
+                <button class="btn-cancel" @onclick="() => _confirmingDelete = null">Cancel</button>
+            </div>
+        </div>
+    </div>
+}
+}
+
+@code {
+    private bool _checked = false;
+    private List<LeagueResultDto>? _results;
+    private List<int> _years = new();
+    private LeagueResultDto _newResult = new() { Year = DateTime.Now.Year, Semester = 1 };
+    private LeagueResultDto _editResult = new();
+    private int? _editingId = null;
+    private LeagueResultDto? _confirmingDelete = null;
+    private string _message = "";
+    private bool _isError = false;
+    private int _filterYear = 0;
+    private int _filterSemester = 0;
+    private string _searchTerm = "";
+
+    private IEnumerable<LeagueResultDto> FilteredResults => (_results ?? new())
+        .Where(r => _filterYear == 0 || r.Year == _filterYear)
+        .Where(r => _filterSemester == 0 || r.Semester == _filterSemester)
+        .Where(r => string.IsNullOrEmpty(_searchTerm) ||
+                    r.PlayerName.Contains(_searchTerm, StringComparison.OrdinalIgnoreCase))
+        .OrderByDescending(r => r.Year)
+        .ThenBy(r => r.Semester)
+        .ThenByDescending(r => r.Score);
+
+    protected override async Task OnInitializedAsync()
+    {
+        if (!await AuthService.IsAuthenticatedAsync())
+            Nav.NavigateTo("/admin/login");
+
+        _checked = true;
+        await LoadResults();
+    }
+
+    private async Task LoadResults()
+    {
+        _results = await Http.GetFromJsonAsync<List<LeagueResultDto>>("api/league");
+        _years = _results?
+            .Select(r => r.Year)
+            .Distinct()
+            .OrderByDescending(y => y)
+            .ToList() ?? new();
+    }
+
+    private async Task SetAuthHeader()
+    {
+        var token = await AuthService.GetTokenAsync();
+        Http.DefaultRequestHeaders.Authorization =
+            new System.Net.Http.Headers.AuthenticationHeaderValue("Bearer", token);
+    }
+
+    private async Task AddResult()
+    {
+        if (string.IsNullOrWhiteSpace(_newResult.PlayerName))
+        {
+            ShowMessage("Player name is required.", true);
+            return;
+        }
+
+        await SetAuthHeader();
+        var response = await Http.PostAsJsonAsync("api/league", _newResult);
+
+        if (response.IsSuccessStatusCode)
+        {
+            ShowMessage($"{_newResult.PlayerName} added successfully.");
+            _newResult = new LeagueResultDto { Year = DateTime.Now.Year, Semester = 1 };
+            await LoadResults();
+        }
+        else
+        {
+            ShowMessage("Failed to add result.", true);
+        }
+    }
+
+    private void StartEdit(LeagueResultDto result)
+    {
+        _editingId = result.Id;
+        _editResult = new LeagueResultDto
+        {
+            Id = result.Id,
+            Year = result.Year,
+            Semester = result.Semester,
+            PlayerName = result.PlayerName,
+            Score = result.Score
+        };
+    }
+
+    private async Task SaveEdit()
+    {
+        await SetAuthHeader();
+        var response = await Http.PutAsJsonAsync($"api/league/{_editResult.Id}", _editResult);
+
+        if (response.IsSuccessStatusCode)
+        {
+            ShowMessage($"{_editResult.PlayerName} updated successfully.");
+            _editingId = null;
+            await LoadResults();
+        }
+        else
+        {
+            ShowMessage("Failed to update result.", true);
+        }
+    }
+
+    private void CancelEdit() => _editingId = null;
+
+    private void ConfirmDelete(LeagueResultDto result) => _confirmingDelete = result;
+
+    private async Task DeleteConfirmed()
+    {
+        if (_confirmingDelete == null) return;
+
+        await SetAuthHeader();
+        var response = await Http.DeleteAsync($"api/league/{_confirmingDelete.Id}");
+
+        if (response.IsSuccessStatusCode)
+        {
+            ShowMessage($"{_confirmingDelete.PlayerName} removed from archive.");
+            _confirmingDelete = null;
+            await LoadResults();
+        }
+        else
+        {
+            ShowMessage("Failed to delete result.", true);
+        }
+    }
+
+    private void ShowMessage(string msg, bool isError = false)
+    {
+        _message = msg;
+        _isError = isError;
+    }
+}

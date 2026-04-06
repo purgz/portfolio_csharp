@@ -1,7 +1,6 @@
 @page "/league-archive"
 @inject HttpClient Http
-
-@using Portfolio.Models;
+@using Portfolio.Models
 
 <h1>League Archive</h1>
 
@@ -11,14 +10,11 @@
 }
 else
 {
-    <div style="display:flex; gap:1rem; margin-bottom:1rem; flex-wrap:wrap;">
+    <div class="year-selector">
         @foreach (var year in _years)
         {
-            <button @onclick="() => SelectYear(year)"
-                    style="padding:0.5rem 1rem; 
-                           background:@(_selectedYear == year ? "#1a1a2e" : "#eee"); 
-                           color:@(_selectedYear == year ? "white" : "black"); 
-                           border:none; border-radius:4px; cursor:pointer;">
+            <button class="year-btn @(_selectedYear == year ? "active" : "")"
+                    @onclick="() => SelectYear(year)">
                 @year
             </button>
         }
@@ -26,7 +22,7 @@ else
 
     @if (_selectedYear.HasValue)
     {
-        <div style="display:flex; gap:2rem; flex-wrap:wrap;">
+        <div class="semesters">
             @foreach (var semester in new[] { 1, 2 })
             {
                 var semesterResults = _results?
@@ -34,26 +30,26 @@ else
                     .OrderByDescending(r => r.Score)
                     .ToList();
 
-                <div style="flex:1; min-width:250px;">
+                <div class="semester-block">
                     <h2>Semester @semester</h2>
                     @if (semesterResults != null && semesterResults.Any())
                     {
-                        <table style="width:100%; border-collapse:collapse;">
+                        <table>
                             <thead>
-                                <tr style="background:#1a1a2e; color:white;">
-                                    <th style="padding:0.5rem; text-align:left;">Pos</th>
-                                    <th style="padding:0.5rem; text-align:left;">Player</th>
-                                    <th style="padding:0.5rem; text-align:right;">Score</th>
+                                <tr>
+                                    <th>Pos</th>
+                                    <th>Player</th>
+                                    <th>Score</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 @for (int i = 0; i < semesterResults.Count; i++)
                                 {
                                     var result = semesterResults[i];
-                                    <tr style="border-bottom:1px solid #eee; background:@(i % 2 == 0 ? "white" : "#f9f9f9")">
-                                        <td style="padding:0.5rem;">@(i + 1)</td>
-                                        <td style="padding:0.5rem;">@result.PlayerName</td>
-                                        <td style="padding:0.5rem; text-align:right;">@result.Score</td>
+                                    <tr>
+                                        <td>@(i + 1)</td>
+                                        <td>@result.PlayerName</td>
+                                        <td>@result.Score.ToString("F2")</td>
                                     </tr>
                                 }
                             </tbody>
@@ -61,7 +57,7 @@ else
                     }
                     else
                     {
-                        <p>No results for this semester.</p>
+                        <p class="no-results">No results for this semester.</p>
                     }
                 </div>
             }
@@ -87,4 +83,3 @@ else
         _results = await Http.GetFromJsonAsync<List<LeagueResultDto>>("api/league");
     }
 }
-

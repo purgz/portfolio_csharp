@@ -44,6 +44,11 @@ public class AuthService
         var jwt = new JwtSecurityTokenHandler().ReadJwtToken(token);
         return jwt.ValidTo > DateTime.UtcNow;
     }
+
+    public async Task<string?> GetTokenAsync()
+    {
+        return await _js.InvokeAsync<string?>("localStorage.getItem", TokenKey);
+    }
 }
 
 public record TokenResponse(string Token);

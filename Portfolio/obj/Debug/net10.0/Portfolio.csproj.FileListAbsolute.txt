@@ -1149,9 +1149,11 @@ C:\portfolio_csharp\Portfolio\bin\Debug\net10.0\wwwroot\_framework\Portfolio.pdb
 C:\portfolio_csharp\Portfolio\bin\Debug\net10.0\wwwroot\_framework\dotnet.js.gz
 C:\portfolio_csharp\Portfolio\obj\Debug\net10.0\compressed\4h5lvuec0z-{0}-rqpc9mtl2z-rqpc9mtl2z.gz
 C:\portfolio_csharp\Portfolio\obj\Debug\net10.0\scopedcss\Pages\Home.razor.rz.scp.css
-C:\portfolio_csharp\Portfolio\obj\Debug\net10.0\compressed\1gf0soj1i0-{0}-8q6ujp6s90-8q6ujp6s90.gz
-C:\portfolio_csharp\Portfolio\obj\Debug\net10.0\compressed\dq6x3a8ph8-{0}-bu922sc546-bu922sc546.gz
-C:\portfolio_csharp\Portfolio\obj\Debug\net10.0\compressed\rbv2ka4glg-{0}-bu922sc546-bu922sc546.gz
-C:\portfolio_csharp\Portfolio\obj\Debug\net10.0\compressed\phqntkgxay-{0}-lzka6pkp28-lzka6pkp28.gz
-C:\portfolio_csharp\Portfolio\obj\Debug\net10.0\compressed\dd4nc87vck-{0}-w4ye23b7qg-w4ye23b7qg.gz
-C:\portfolio_csharp\Portfolio\obj\Debug\net10.0\compressed\hgqrykxyam-{0}-h4o0tihql1-h4o0tihql1.gz
+C:\portfolio_csharp\Portfolio\obj\Debug\net10.0\compressed\1gf0soj1i0-{0}-djukna1xqa-djukna1xqa.gz
+C:\portfolio_csharp\Portfolio\obj\Debug\net10.0\scopedcss\Pages\Admin\LeagueAdmin.razor.rz.scp.css
+C:\portfolio_csharp\Portfolio\obj\Debug\net10.0\scopedcss\Pages\LeagueArchive.razor.rz.scp.css
+C:\portfolio_csharp\Portfolio\obj\Debug\net10.0\compressed\dq6x3a8ph8-{0}-0oxhl07jep-0oxhl07jep.gz
+C:\portfolio_csharp\Portfolio\obj\Debug\net10.0\compressed\rbv2ka4glg-{0}-0oxhl07jep-0oxhl07jep.gz
+C:\portfolio_csharp\Portfolio\obj\Debug\net10.0\compressed\phqntkgxay-{0}-jc1n0fx9n4-jc1n0fx9n4.gz
+C:\portfolio_csharp\Portfolio\obj\Debug\net10.0\compressed\dd4nc87vck-{0}-nfyp5t1xw4-nfyp5t1xw4.gz
+C:\portfolio_csharp\Portfolio\obj\Debug\net10.0\compressed\hgqrykxyam-{0}-tw0zmauhdx-tw0zmauhdx.gz

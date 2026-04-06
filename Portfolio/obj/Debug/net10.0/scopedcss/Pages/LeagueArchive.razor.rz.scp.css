@@ -1,0 +1,118 @@
+h1[b-drjhtj7dvf] {
+    color: var(--primary);
+    margin-bottom: 0.25rem;
+}
+
+.year-selector[b-drjhtj7dvf] {
+    display: flex;
+    gap: 0.75rem;
+    margin-bottom: 1.5rem;
+    flex-wrap: wrap;
+}
+
+.year-btn[b-drjhtj7dvf] {
+    padding: 0.5rem 1.25rem;
+    border: 2px solid var(--primary);
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 0.95rem;
+    font-weight: 600;
+    background: transparent;
+    color: var(--primary);
+    transition: all 0.15s;
+}
+
+.year-btn:hover[b-drjhtj7dvf] {
+    background: var(--primary);
+    color: white;
+}
+
+.year-btn.active[b-drjhtj7dvf] {
+    background: var(--primary);
+    color: white;
+}
+
+.semesters[b-drjhtj7dvf] {
+    display: flex;
+    gap: 2rem;
+    flex-wrap: wrap;
+}
+
+.semester-block[b-drjhtj7dvf] {
+    flex: 1;
+    min-width: 260px;
+}
+
+.semester-block h2[b-drjhtj7dvf] {
+    color: var(--primary);
+    font-size: 1.1rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 3px solid var(--accent);
+    display: inline-block;
+}
+
+table[b-drjhtj7dvf] {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.9rem;
+}
+
+thead tr[b-drjhtj7dvf] {
+    background: var(--primary);
+    color: white;
+}
+
+thead th[b-drjhtj7dvf] {
+    padding: 0.75rem 1rem;
+    text-align: left;
+    font-weight: 600;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+thead th:last-child[b-drjhtj7dvf] {
+    text-align: right;
+}
+
+tbody tr[b-drjhtj7dvf] {
+    border-bottom: 1px solid var(--border);
+    transition: background 0.1s;
+}
+
+tbody tr:hover[b-drjhtj7dvf] {
+    background: #F0F4FB;
+}
+
+tbody tr:nth-child(even)[b-drjhtj7dvf] {
+    background: #F8F9FC;
+}
+
+tbody tr:nth-child(even):hover[b-drjhtj7dvf] {
+    background: #F0F4FB;
+}
+
+tbody td[b-drjhtj7dvf] {
+    padding: 0.65rem 1rem;
+    color: var(--text);
+}
+
+tbody td:last-child[b-drjhtj7dvf] {
+    text-align: right;
+    font-weight: 600;
+    color: var(--primary);
+}
+
+.no-results[b-drjhtj7dvf] {
+    color: var(--text-muted);
+    font-style: italic;
+}
+
+@media (max-width: 768px) {
+    .semesters[b-drjhtj7dvf] {
+        flex-direction: column;
+        gap: 2rem;
+    }
+}
