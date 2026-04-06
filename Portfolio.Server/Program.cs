@@ -4,6 +4,7 @@ using Microsoft.IdentityModel.Tokens;
 using Portfolio.Server.Data;
 using System.Text;
 using Portfolio.Server.Models;
+using Microsoft.AspNetCore.Identity;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -16,19 +17,36 @@ builder.Services.AddDbContext<AppDbContext>(options =>
     options.UseSqlServer(
         builder.Configuration.GetConnectionString("DefaultConnection")));
 
-builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
-    .AddJwtBearer(options =>
+builder.Services.AddIdentity<ApplicationUser, IdentityRole>(options =>
+{
+  options.Password.RequiredLength = 6;
+  options.Password.RequireDigit = true;
+
+  //options.Lockout.MaxFailedAccessAttempts = 5;
+  //options.Lockout.DefaultLockoutTimeSpan = TimeSpan.FromMinutes(1);
+})
+.AddEntityFrameworkStores<AppDbContext>()
+.AddDefaultTokenProviders();
+
+
+builder.Services.AddAuthentication(options =>
+{
+    options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
+    options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
+    options.DefaultScheme = JwtBearerDefaults.AuthenticationScheme;
+})
+.AddJwtBearer(options =>
+{
+    options.TokenValidationParameters = new TokenValidationParameters
     {
-        options.TokenValidationParameters = new TokenValidationParameters
-        {
-            ValidateIssuerSigningKey = true,
-            IssuerSigningKey = new SymmetricSecurityKey(
-                Encoding.UTF8.GetBytes(builder.Configuration["Jwt:Secret"]!)),
-            ValidateIssuer = false,
-            ValidateAudience = false,
-            ClockSkew = TimeSpan.Zero
-        };
-    });
+        ValidateIssuerSigningKey = true,
+        IssuerSigningKey = new SymmetricSecurityKey(
+            Encoding.UTF8.GetBytes(builder.Configuration["Jwt:Secret"]!)),
+        ValidateIssuer = false,
+        ValidateAudience = false,
+        ClockSkew = TimeSpan.Zero
+    };
+});
 
 var app = builder.Build();
 
@@ -51,19 +69,36 @@ try
 {
     using (var scope = app.Services.CreateScope())
     {
+        
         var db = scope.ServiceProvider.GetRequiredService<AppDbContext>();
         db.Database.Migrate();
 
-        if (!db.AdminUsers.Any())
+        /*
+        var userManager = scope.ServiceProvider.GetRequiredService<UserManager<ApplicationUser>>();
+
+        var username = "";
+        var password = "";
+
+        var existingAdmin = await userManager.FindByNameAsync(username);
+        existingAdmin = null;
+        if (existingAdmin == null)
         {
-            db.AdminUsers.Add(new Portfolio.Server.Models.AdminUser
+          var user = new ApplicationUser
+          {
+            UserName = username!,
+            Activated = false
+          };
+          var result =await userManager.CreateAsync(user, password);
+          if (!result.Succeeded)
+          {
+            Console.WriteLine("Failed to create admin user:");
+            foreach (var error in result.Errors)
             {
-                Username = builder.Configuration["Admin:Username"]!,
-                PasswordHash = BCrypt.Net.BCrypt.HashPassword(
-                    builder.Configuration["Admin:SeedPassword"]!)
-            });
-            db.SaveChanges();
+              Console.WriteLine($"- {error.Description}");
+            }
+          }
         }
+        */
 
         if (!db.LeagueResults.Any())
           {

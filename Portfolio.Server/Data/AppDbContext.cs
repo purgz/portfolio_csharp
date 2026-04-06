@@ -1,13 +1,13 @@
-using Microsoft.EntityFrameworkCore;
 using Portfolio.Server.Models;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 
 namespace Portfolio.Server.Data;
 
-public class AppDbContext : DbContext
+public class AppDbContext : IdentityDbContext<ApplicationUser>
 {
     public AppDbContext(DbContextOptions<AppDbContext> options)
         : base(options) { }
 
-    public DbSet<AdminUser> AdminUsers { get; set; }
     public DbSet<LeagueResult> LeagueResults { get; set; }
 }

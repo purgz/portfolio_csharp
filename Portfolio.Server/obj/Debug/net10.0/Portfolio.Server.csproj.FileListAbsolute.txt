@@ -235,3 +235,4 @@ C:\portfolio_csharp\Portfolio.Server\obj\Debug\net10.0\refint\Portfolio.Server.d
 C:\portfolio_csharp\Portfolio.Server\obj\Debug\net10.0\Portfolio.Server.pdb
 C:\portfolio_csharp\Portfolio.Server\obj\Debug\net10.0\Portfolio.Server.genruntimeconfig.cache
 C:\portfolio_csharp\Portfolio.Server\obj\Debug\net10.0\ref\Portfolio.Server.dll
+C:\portfolio_csharp\Portfolio.Server\bin\Debug\net10.0\Microsoft.AspNetCore.Identity.EntityFrameworkCore.dll

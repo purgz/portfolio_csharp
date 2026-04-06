@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "l9Hc751CcS4=",
+  "dgSpecHash": "oBUOlZpv34k=",
   "success": true,
   "projectFilePath": "C:\\portfolio_csharp\\Portfolio.Server\\Portfolio.Server.csproj",
   "expectedPackageFiles": [
@@ -11,6 +11,7 @@
     "C:\\Users\\henbr\\.nuget\\packages\\microsoft.aspnetcore.authentication.jwtbearer\\10.0.0\\microsoft.aspnetcore.authentication.jwtbearer.10.0.0.nupkg.sha512",
     "C:\\Users\\henbr\\.nuget\\packages\\microsoft.aspnetcore.components.webassembly\\10.0.5\\microsoft.aspnetcore.components.webassembly.10.0.5.nupkg.sha512",
     "C:\\Users\\henbr\\.nuget\\packages\\microsoft.aspnetcore.components.webassembly.server\\10.0.5\\microsoft.aspnetcore.components.webassembly.server.10.0.5.nupkg.sha512",
+    "C:\\Users\\henbr\\.nuget\\packages\\microsoft.aspnetcore.identity.entityframeworkcore\\10.0.5\\microsoft.aspnetcore.identity.entityframeworkcore.10.0.5.nupkg.sha512",
     "C:\\Users\\henbr\\.nuget\\packages\\microsoft.bcl.asyncinterfaces\\10.0.3\\microsoft.bcl.asyncinterfaces.10.0.3.nupkg.sha512",
     "C:\\Users\\henbr\\.nuget\\packages\\microsoft.bcl.cryptography\\9.0.4\\microsoft.bcl.cryptography.9.0.4.nupkg.sha512",
     "C:\\Users\\henbr\\.nuget\\packages\\microsoft.build\\17.7.2\\microsoft.build.17.7.2.nupkg.sha512",
