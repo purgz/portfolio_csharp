@@ -1154,6 +1154,6 @@ C:\portfolio_csharp\Portfolio\obj\Debug\net10.0\scopedcss\Pages\Admin\LeagueAdmi
 C:\portfolio_csharp\Portfolio\obj\Debug\net10.0\scopedcss\Pages\LeagueArchive.razor.rz.scp.css
 C:\portfolio_csharp\Portfolio\obj\Debug\net10.0\compressed\dq6x3a8ph8-{0}-0oxhl07jep-0oxhl07jep.gz
 C:\portfolio_csharp\Portfolio\obj\Debug\net10.0\compressed\rbv2ka4glg-{0}-0oxhl07jep-0oxhl07jep.gz
-C:\portfolio_csharp\Portfolio\obj\Debug\net10.0\compressed\phqntkgxay-{0}-ucbha9qgxh-ucbha9qgxh.gz
-C:\portfolio_csharp\Portfolio\obj\Debug\net10.0\compressed\dd4nc87vck-{0}-h37xnfqs11-h37xnfqs11.gz
-C:\portfolio_csharp\Portfolio\obj\Debug\net10.0\compressed\hgqrykxyam-{0}-o0wv1pea2c-o0wv1pea2c.gz
+C:\portfolio_csharp\Portfolio\obj\Debug\net10.0\compressed\phqntkgxay-{0}-c315621mes-c315621mes.gz
+C:\portfolio_csharp\Portfolio\obj\Debug\net10.0\compressed\dd4nc87vck-{0}-8ey8oupylm-8ey8oupylm.gz
+C:\portfolio_csharp\Portfolio\obj\Debug\net10.0\compressed\hgqrykxyam-{0}-766d5yk3ms-766d5yk3ms.gz

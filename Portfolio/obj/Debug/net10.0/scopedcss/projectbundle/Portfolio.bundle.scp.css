@@ -322,7 +322,7 @@ tbody td[b-qk3zb15whg] {
 }
 
 .hero-bio[b-v9rf77xbvc] {
-    max-width: 600px;
+    max-width: 900px;
     color: var(--text-muted);
     line-height: 1.8;
     margin-bottom: 2rem;
@@ -417,13 +417,24 @@ tbody td[b-qk3zb15whg] {
 }
 
 .project-card[b-v9rf77xbvc] {
+
+    text-decoration: none; 
+
+    width: 100%;
+    height: 100%;              /* 🔥 important for grid */
+    box-sizing: border-box;    /* prevents weird border issues */
+
+    color: inherit;
+
     padding: 1.5rem;
     border: 1px solid var(--border);
     border-radius: 6px;
     background: var(--surface);
-    transition: box-shadow 0.2s, transform 0.2s;
     border-top: 4px solid var(--primary-light);
+
+    transition: box-shadow 0.2s, transform 0.2s;
 }
+
 
 .project-card:hover[b-v9rf77xbvc] {
     box-shadow: 0 6px 20px rgba(10,36,99,0.1);
@@ -463,7 +474,7 @@ tbody td[b-qk3zb15whg] {
 .about-text[b-v9rf77xbvc] {
     color: var(--text-muted);
     line-height: 1.8;
-    max-width: 700px;
+    max-width: 900px;
 }
 
 @media (max-width: 768px) {
