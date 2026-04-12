@@ -605,3 +605,107 @@ tbody td:last-child[b-drjhtj7dvf] {
         gap: 2rem;
     }
 }
+/* /Pages/Projects.razor.rz.scp.css */
+.projects-grid[b-ytgg9p8ryo] {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+}
+/* Same system as your skill-card */
+.project-card[b-ytgg9p8ryo] {
+    text-decoration: none;
+    width: 100%;
+    height: 100%;
+    box-sizing: border-box;
+
+    color: inherit;
+
+    padding: 1.5rem;
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    background: var(--surface);
+
+    border-top: 4px solid var(--primary-light);
+
+    transition: box-shadow 0.2s, transform 0.2s;
+}
+
+/* consistent hover with your existing cards */
+.project-card:hover[b-ytgg9p8ryo] {
+    box-shadow: 0 6px 20px rgba(10, 36, 99, 0.1);
+    transform: translateY(-2px);
+}
+
+.project-card h2[b-ytgg9p8ryo],
+.project-card h3[b-ytgg9p8ryo] {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--primary);
+    margin-bottom: 0.5rem;
+}
+
+.project-card p[b-ytgg9p8ryo] {
+    color: var(--text-muted);
+    font-size: 0.9rem;
+    line-height: 1.6;
+    margin-bottom: 1rem;
+}
+
+/* optional image (kept subtle like your system design) */
+.project-img[b-ytgg9p8ryo] {
+    width: 100%;
+    border-radius: 4px;
+    margin-bottom: 1rem;
+    border: 1px solid var(--border);
+    object-fit: cover;
+}
+
+/* tags match your .tag system exactly */
+.project-tags[b-ytgg9p8ryo] {
+    display: flex;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+    margin-bottom: 1rem;
+}
+
+.project-tags span[b-ytgg9p8ryo] {
+    background: #E8EEF8;
+    color: var(--primary);
+    padding: 0.2rem 0.7rem;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    border: 1px solid #C5D0E8;
+}
+
+/* links match your button language but simpler */
+.project-links[b-ytgg9p8ryo] {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+    margin-top: auto;
+}
+
+.project-links a[b-ytgg9p8ryo] {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--primary);
+    text-decoration: none;
+    border-bottom: 1px solid transparent;
+    transition: all 0.15s;
+}
+
+.project-links a:hover[b-ytgg9p8ryo] {
+    border-bottom: 1px solid var(--primary);
+}
+
+/* page title consistency with section-title */
+h1[b-ytgg9p8ryo] {
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: var(--primary);
+    margin-bottom: 1.5rem;
+    padding-bottom: 0.6rem;
+    border-bottom: 3px solid var(--accent);
+    display: inline-block;
+}

@@ -5,7 +5,7 @@ var e=!1;const t=async()=>WebAssembly.validate(new Uint8Array([0,97,115,109,1,0,
   "mainAssemblyName": "Portfolio",
   "applicationEnvironment": "Development",
   "resources": {
-    "hash": "sha256-nnc/bwnzWhtzORIlodSP0lz5wTDt3cmKp8rLUekq0qQ=",
+    "hash": "sha256-NwHcAbmesmJqwM0TsVgjCLAlaVpHpusFJzWqSJO3rzc=",
     "jsModuleNative": [
       {
         "name": "dotnet.native.js"
@@ -1070,14 +1070,14 @@ var e=!1;const t=async()=>WebAssembly.validate(new Uint8Array([0,97,115,109,1,0,
       {
         "virtualPath": "Portfolio.wasm",
         "name": "Portfolio.wasm",
-        "integrity": "sha256-yDLp4TTivzs582ELXdH6jNW/WSXb2+D18gdN0aecFCY="
+        "integrity": "sha256-9l7mOKjkeA+G2bY7FfODMJHMwR5RMsa/mIqKMiojvsM="
       }
     ],
     "pdb": [
       {
         "virtualPath": "Portfolio.pdb",
         "name": "Portfolio.pdb",
-        "integrity": "sha256-4D9pisHRNQ2KSSM2oUzKReJedFN0i0oxbhKg7uqyMS0="
+        "integrity": "sha256-ZVNSfY63P1NoWyHWyptVhYShMN4YNgMBKQj9shjmzGc="
       }
     ],
     "libraryInitializers": [

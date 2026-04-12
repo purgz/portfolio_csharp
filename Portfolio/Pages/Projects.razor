@@ -1,0 +1,97 @@
+@page "/projects"
+
+
+@inject IJSRuntime JS
+
+@code {
+    [Parameter]
+    [SupplyParameterFromQuery(Name = "scrollTo")]
+    public string? ScrollTo { get; set; }
+
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (!string.IsNullOrEmpty(ScrollTo))
+        {
+            await JS.InvokeVoidAsync("scrollToHash", ScrollTo);
+        }
+    }
+}
+
+<h1>Projects</h1>
+
+<div class="projects-grid">
+
+      <div class="project-card" id="gt-project"
+        <h2>Evolutionary Game Theory Project</h2>
+
+        <p>
+            Research project modelling evolutionary dynamics in finite populations, work 
+            presented at an academic conference and ongoing work towards publication.
+
+            Developed efficient simulation systems using Python and scientific libraries to analyse complex multi-agent behaviour.
+
+            See links below to view the final report, code repository, and abstract for the conference presentation.
+        </p>
+
+        Some example trajectories simulations rendered:
+        <img src="/files/images/example_traj.png" class="project-img" /> 
+        
+        <p>
+          This project has given me experience in developing complex systems over an extended period, working 
+          collaboratively and exploring an open ended problem. I have developed strong analytical skills, and 
+          the ability to communicate technical findings rigorously. 
+        </p>
+
+        <p>
+          Produced a set of simulation tools in Python using scientific libraries, including optimisations using Numba to 
+          efficiently simulate large population ensembles over a complex parameter space.
+        </p>
+
+        <div class="project-tags">
+            <span>Python</span>
+            <span>Numpy</span>
+            <span>Scipy</span>
+            <span>Numba</span>
+        </div>
+
+        <div class="project-links">
+            <a href="https://github.com/purgz/GTfyp" target="_blank">GitHub</a>
+        </div>
+         <div class="project-links">
+            <a href="https://research.birmingham.ac.uk/en/publications/composite-and-combined-games-in-evolutionary-dynamics-in-finite-p/" target="_blank">Abstract</a>
+        </div>
+        <div class="project-links">
+            <a href="/files/final_report.pdf" target="_blank">Final report</a>
+        </div>
+
+    </div>
+
+    <div class="project-card" id="sapsoc">
+        <h2>SAPSOC League Management System</h2>
+
+        <p>
+            Production system used by a university snooker and pool club.
+            Built with Spring Boot and Angular, featuring scheduling, results tracking,
+            and CI/CD deployment via Docker and GitHub Actions.
+        </p>
+
+        @* <img src="/images/sapsoc.png" class="project-img" /> *@
+
+        <div class="project-tags">
+            <span>Java</span>
+            <span>Spring Boot</span>
+            <span>Angular</span>
+            <span>Docker</span>
+            <span>CI/CD</span>
+        </div>
+
+        <div class="project-links">
+            <a href="https://github.com/purgz/SAPSOCLeague" target="_blank">GitHub</a>
+        </div>
+
+    </div>
+
+
+
+
+</div>
