@@ -1151,11 +1151,11 @@ C:\portfolio_csharp\Portfolio\obj\Debug\net10.0\scopedcss\Pages\Home.razor.rz.sc
 C:\portfolio_csharp\Portfolio\obj\Debug\net10.0\compressed\1gf0soj1i0-{0}-djukna1xqa-djukna1xqa.gz
 C:\portfolio_csharp\Portfolio\obj\Debug\net10.0\scopedcss\Pages\Admin\LeagueAdmin.razor.rz.scp.css
 C:\portfolio_csharp\Portfolio\obj\Debug\net10.0\scopedcss\Pages\LeagueArchive.razor.rz.scp.css
-C:\portfolio_csharp\Portfolio\obj\Debug\net10.0\compressed\4h5lvuec0z-{0}-vqk20tjs0a-vqk20tjs0a.gz
 C:\portfolio_csharp\Portfolio\obj\Debug\net10.0\scopedcss\Pages\Projects.razor.rz.scp.css
 C:\portfolio_csharp\Portfolio\obj\Debug\net10.0\compressed\6oo0xb1xjj-{0}-08mnup42zc-08mnup42zc.gz
 C:\portfolio_csharp\Portfolio\obj\Debug\net10.0\compressed\dq6x3a8ph8-{0}-tn344y9mt0-tn344y9mt0.gz
 C:\portfolio_csharp\Portfolio\obj\Debug\net10.0\compressed\rbv2ka4glg-{0}-tn344y9mt0-tn344y9mt0.gz
-C:\portfolio_csharp\Portfolio\obj\Debug\net10.0\compressed\phqntkgxay-{0}-6d7j5409tl-6d7j5409tl.gz
-C:\portfolio_csharp\Portfolio\obj\Debug\net10.0\compressed\dd4nc87vck-{0}-9fgd3fs2q8-9fgd3fs2q8.gz
-C:\portfolio_csharp\Portfolio\obj\Debug\net10.0\compressed\hgqrykxyam-{0}-36ds0mts2c-36ds0mts2c.gz
+C:\portfolio_csharp\Portfolio\obj\Debug\net10.0\compressed\4h5lvuec0z-{0}-a79tkbqzmu-a79tkbqzmu.gz
+C:\portfolio_csharp\Portfolio\obj\Debug\net10.0\compressed\phqntkgxay-{0}-ckbyg2nmi0-ckbyg2nmi0.gz
+C:\portfolio_csharp\Portfolio\obj\Debug\net10.0\compressed\dd4nc87vck-{0}-kb28oob31q-kb28oob31q.gz
+C:\portfolio_csharp\Portfolio\obj\Debug\net10.0\compressed\hgqrykxyam-{0}-sv44gokl6s-sv44gokl6s.gz
